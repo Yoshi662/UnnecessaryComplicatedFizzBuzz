@@ -29,6 +29,8 @@ namespace UnnecessaryComplicatedFizzBuzz
 		{
 			Limit = limit;
 			Modifiers = modifiers ?? throw new ArgumentNullException(nameof(modifiers));
+
+			Modifiers.Sort((d1, d2) => (int)(d1.Divisor - d2.Divisor));
 		}
 
 		public string Compute()
