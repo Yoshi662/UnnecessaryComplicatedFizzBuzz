@@ -16,24 +16,24 @@ namespace UnnecessaryComplicatedFizzBuzz.Model
 			private set { _divisor = value; }
 		}
 
-		private string _output;
+		private string _word;
 
-		public string Output
+		public string Word
 		{
-			get { return _output; }
-			private set { _output = value; }
+			get { return _word; }
+			private set { _word = value; }
 		}
 
-		public Modifier(uint divisor, string output)
+		public Modifier(uint divisor, string word)
 		{
 			if (divisor == uint.MinValue) throw new DivideByZeroException("Divisor cannot be zero");
 
 			Divisor = divisor;
-			Output = output;
+			Word = word;
 		}
 
 		public bool CanModify(uint input) => input % Divisor == uint.MinValue;
 
-		public string Replace(uint input) => CanModify(input) ? Output : input.ToString();
+		public string Replace(uint input) => CanModify(input) ? Word : String.Empty;
 	}
 }
